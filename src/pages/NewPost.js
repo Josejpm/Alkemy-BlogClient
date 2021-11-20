@@ -1,37 +1,51 @@
-import React,{useState} from "react";
+import axiosClient from '../config/axios';
 import {Form,Button} from 'react-bootstrap'
+import { useFormik } from "formik";
 
 export const NewPost = () => {
 
-    const [formValues, setFormValues] = useState({
+  const validate = values => {
+    const errors = {};
+    if (!values.title) {
+      errors.title = 'Post title is required';
+    } else if (values.title.length < 2) {
+      errors.title = 'Must be at least 2 characters long';
+    }
+    if (!values.body) {
+      errors.content = 'Post content is required';
+    }
+    return errors;
+  };
+
+    const formik = useFormik({
+      initialValues:{
         title:'',
-        content:''
+        body:''
+      },
+      validate,
+      onSubmit: values=>handleSubmit(values)
     });
 
-    const {title,content} = formValues;
+    const handleSubmit = async (values)=>{
+      const resp = await axiosClient.delete('/2');
+      console.log(resp);
+    };
 
-    const handleChange = (e)=>{
-        setFormValues({
-            ...formValues,
-            [e.target.name]:e.target.value
-        })
-    }
-
-
+ 
   return (
     <div>
 
       <h1>Add a new post</h1>
 
-      <Form>
+      <Form onSubmit={formik.handleSubmit}  >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Title</Form.Label>
           <Form.Control 
             type="text" 
             name="title"
             placeholder="Post title here..."
-            onChange={handleChange}
-            value={title}
+            onChange={formik.handleChange}
+            value={formik.values.title}
             
         />
         </Form.Group>
@@ -41,9 +55,9 @@ export const NewPost = () => {
           <Form.Control 
             as="textarea" 
             rows={2}
-            name="content"
-            onChange={handleChange}
-            value={content}
+            name="body"
+            onChange={formik.handleChange}
+            value={formik.values.body}
         />
         </Form.Group>
 
