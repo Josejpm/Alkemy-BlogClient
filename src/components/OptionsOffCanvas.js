@@ -31,16 +31,16 @@ export const OptionsOffCanvas = ({post,show,setShow,setShowModal}) => {
         <Offcanvas.Body>
 
           <Button
-            className="green btn"
+            className="green btn offset"
             onClick={() => handleDetailsClick()}
           >
             Details
           </Button>
-          <Button className="green btn" onClick={() => handleEditClick()}>
+          <Button className="green btn offset" onClick={() => handleEditClick()}>
             Edit
           </Button>
           <Button
-            className="delete btn"
+            className="delete btn offset"
             onClick={() => setShowModal(true)}
             variant="danger"
           >

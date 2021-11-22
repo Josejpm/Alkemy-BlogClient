@@ -80,11 +80,19 @@
             background-color: v.$darkenPrimary;
             border-color: v.$darkenPrimary;
         }
-
     }
     font-size: 1.2rem;
     @include m.tablet{
         font-size: 1.5rem;
+    }
+
+    &.offset{
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        width: 50%;
+        font-size: 1.5rem;
+        padding: 1rem;
     }
 }
 
