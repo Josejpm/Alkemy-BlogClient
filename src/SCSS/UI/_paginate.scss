@@ -1,0 +1,21 @@
+
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+
+.paginate.active{
+   .page-link{
+       background-color:v.$primary;
+       border-color: v.$primary;
+   }
+}
+
+.page-item{
+    margin-right: 0.5rem;
+    &:last-of-type{
+        margin-right: 0;
+    }
+    .page-link{
+        color: v.$primary;
+    }
+}

@@ -1,0 +1,25 @@
+@use '../base/variables' as v; 
+@use '../base/mixins' as m;
+
+.post-title{
+    margin: 0;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    @include m.tablet{
+        font-size: 2rem;
+    }
+}
+
+.td-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.offcanvas{
+    width: 80%;
+    @include m.desktop{
+        width: 20%;
+    }
+}

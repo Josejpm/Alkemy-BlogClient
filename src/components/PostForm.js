@@ -5,7 +5,7 @@ export const PostForm = ({title,formik}) => {
 
     return (
         <Container fluid="md">
-        <h1>{title}</h1>
+        <h2 className="heading">{title}</h2>
 
         <Form onSubmit={formik.handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -32,7 +32,7 @@ export const PostForm = ({title,formik}) => {
           </Form.Group>
           {formik.errors.body ?  <Alert variant="danger" > {formik.errors.body} </Alert>  : null }
 
-          <Button variant="primary" type="submit">
+          <Button className='green btn' type="submit">
             Submit
           </Button>
         </Form>

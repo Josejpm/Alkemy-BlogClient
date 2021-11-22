@@ -1,0 +1,32 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.custom-modal{
+    background-color: v.$light;
+    border-radius: 15px;
+    opacity: 0.9;
+    overflow: hidden;
+
+    .modal-header{
+        background-color: v.$primary;
+    }
+
+    .modal__heading{
+        margin: 0 auto;
+        color: v.$light;
+        text-transform: capitalize;
+
+    }
+
+    .modal-body{
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        img{
+            width: 30%;
+            margin-right: 3rem;
+        }
+    }
+}

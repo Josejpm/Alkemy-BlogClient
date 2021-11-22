@@ -1,0 +1,33 @@
+@use '../base/variables' as v; 
+@use '../base/mixins' as m; 
+
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .heading{
+        margin-bottom: 3rem;
+    }
+
+    .table{
+        order: 10;
+        
+        @include m.tablet{
+            margin-bottom: 5rem;
+        }
+    }
+    .pagination{
+        order: 1;
+    }
+
+    @include m.tablet{
+        .table{
+            order: 1;
+        
+        }
+        .pagination{
+            order: 10;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+
+.not-found{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.not-found-image{
+    width: 80%;
+    margin: 0 auto;
+
+    @include m.desktop{
+        width: 40%;
+    }
+}

@@ -54,7 +54,7 @@ const LoginForm = () => {
               name="email"
               className='form-control-plaintext form__input'
               id="email" 
-              placeholder="batman@heroes.com"
+              placeholder="alkymer@alkemy.org"
               onChange={formik.handleChange} 
             />
             <label htmlFor="email">Email</label>
@@ -72,7 +72,7 @@ const LoginForm = () => {
             <label htmlFor="password">Password</label>
 
             {formik.errors.password && <p className='alert alert-danger mt-2 text-center '>{formik.errors.password}</p> }
-            <input className='mt-4 form-button ' type="submit" value="Sign In" />
+            <button className='mt-4 form-button' type="submit"> Sign In </button>
 
             { errorMsg && <p className='alert alert-danger mt-4 text-center'> {errorMsg} </p>}
         </form>
