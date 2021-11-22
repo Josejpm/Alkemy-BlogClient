@@ -89,8 +89,7 @@ const LoginForm = () => {
         </p>
       )}
       <button className="mt-4 form-button" type="submit">
-        {" "}
-        Sign In{" "}
+        Sign In
       </button>
 
       {errorMsg && (

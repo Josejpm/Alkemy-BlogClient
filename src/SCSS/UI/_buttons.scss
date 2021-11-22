@@ -2,6 +2,35 @@
 @use '../base/mixins' as m;
 
 
+.nodata-button,
+.form-button{
+    border: unset;
+    background-color: v.$primary;
+    color: v.$light;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+    border: 1px solid v.$light;
+    border-radius: 2rem;
+    transition: background-color 0.1s ease-in-out;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+
+    @include m.desktop{
+        font-size: 1.5rem;
+        padding: 1rem 3rem;
+    }
+    &:hover{
+        background-color: v.$darkenPrimary;
+    }
+
+    &.layout-bar,&.small{
+        display: block;
+        width: unset;
+        margin: 0 auto;
+    }
+}
+
 .btn{
     &.green{
         background-color: v.$primary;

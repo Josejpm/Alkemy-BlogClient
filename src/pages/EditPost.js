@@ -33,7 +33,7 @@ export const EditPost = () => {
       errors.title = "Must be at least 2 characters long";
     }
     if (!values.body) {
-      errors.content = "Post content is required";
+      errors.body = "Post content is required";
     }
     return errors;
   };
