@@ -7,3 +7,4 @@ Used libraries
 - redux-toolkit
 - axios
 - react-bootstrap
+- sass
