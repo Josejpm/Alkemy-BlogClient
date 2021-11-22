@@ -13,7 +13,7 @@ export const NotFound = () => {
     <div>
       <p className="nodata-text"> Ups!! Post not found </p>
       <img className="not-found-image" src={nodata} alt="not found" />
-      <button className="form-button small" onClick={handleClick}>
+      <button className="nodata-button small" onClick={handleClick}>
         Back Home
       </button>
     </div>
