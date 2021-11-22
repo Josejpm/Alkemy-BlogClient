@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {useNavigate} from 'react-router-dom'
 import { Table, Container, Pagination } from "react-bootstrap";
 
 //Components
@@ -7,17 +8,21 @@ import { NavBar } from "../components/NavBar";
 import { PostListItem } from "../components/PostListItem";
 
 //Redux
-import { fetchPosts,getPostById,deletePost,editPost,newPost} from "../redux/slices/posts";
+import { fetchPosts,clearSinglePost} from "../redux/slices/posts";
 
 const Dashboard = () => {
-
+  const navigate = useNavigate();
   const state = useSelector((state) => state.posts);
   const dispatch = useDispatch();
 
+  const token = localStorage.getItem('blog-token');
+  if(!token){
+      navigate('/');
+  }
+
   useEffect(() => {
-    
+    dispatch(clearSinglePost())
     dispatch(fetchPosts());
-    
   }, []);
 
   const perPage = 5;

@@ -10,7 +10,7 @@ export const NavBar = () => {
                     <Link to={'/dashboard'} className="text-light" > Alkemy Blog </Link> 
                 </h1>
             </div>
-            <Link to={'/new-post'}
+            <Link to={'/post/new'}
                 className="btn btn-success d-block d-md-inline-block">Agregar Producto &#43;
             </Link>
         </nav>

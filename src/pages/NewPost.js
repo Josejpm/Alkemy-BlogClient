@@ -2,15 +2,20 @@ import React,{ Fragment, useEffect } from "react";
 import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import { useFormik } from "formik";
-import { Form, Button, Container } from "react-bootstrap";
 import { NavBar } from "../components/NavBar";
 
 import {newPost} from '../redux/slices/posts';
+import { PostForm } from "../components/PostForm";
 
 export const NewPost = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const {posts} = useSelector(state => state.posts);
-  const navigate = useNavigate();
+  
+  const token = localStorage.getItem('blog-token');
+  if(!token){
+      navigate('/');
+  }
 
   useEffect(() => {
     if(posts.length===0){
@@ -27,7 +32,7 @@ export const NewPost = () => {
       errors.title = "Must be at least 2 characters long";
     }
     if (!values.body) {
-      errors.content = "Post content is required";
+      errors.body = "Post content is required";
     }
     return errors;
   };
@@ -51,37 +56,8 @@ export const NewPost = () => {
     <Fragment>
 
       <NavBar/>
-      <Container fluid="md">
-        <h1>Add a new post</h1>
+      <PostForm title="Add a new post" formik={formik} />
 
-        <Form onSubmit={formik.handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              placeholder="Post title here..."
-              onChange={formik.handleChange}
-              value={formik.values.title}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Content</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={2}
-              name="body"
-              onChange={formik.handleChange}
-              value={formik.values.body}
-            />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Container>
     </Fragment>
   );
 };

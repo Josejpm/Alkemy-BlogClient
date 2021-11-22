@@ -1,16 +1,32 @@
-import React, { Fragment } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { Fragment,useEffect } from "react";
+import {useSelector} from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
+
+import {NavBar} from '../components/NavBar';
 
 const PostDetails = () => {
-    const {id} = useParams()
-    console.log(id);
+  const {singlePost,posts} = useSelector(state => state.posts);
+  const navigate = useNavigate();
 
-    return ( 
-        <Fragment>
-            <h1>Details </h1>
-        </Fragment> 
-    );
-}
- 
+  useEffect(() => {
+    const token = localStorage.getItem("blog-token");
+    if (!token) {
+      navigate("/");
+    } else if(posts.length===0){
+      console.log('Entro aqui')
+      navigate('/dashboard')
+    }
+  }, []);
+
+  return (
+    <Fragment>
+        <NavBar/>
+        <h1>Post details</h1>
+        <h2> {singlePost.title} </h2>
+        <p>  {singlePost.body} </p>
+    </Fragment>
+  );
+};
+
 export default PostDetails;

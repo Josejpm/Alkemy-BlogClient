@@ -5,6 +5,7 @@ import './App.css';
 
 import {Login} from './pages/Login';
 import {NewPost} from './pages/NewPost';
+import {EditPost} from './pages/EditPost';
 import Dashboard from './pages/Dashboard';
 import PostDetails from './pages/PostDetails'
 
@@ -15,8 +16,9 @@ function App() {
         <Routes>
             <Route path="/" element={<Login />}/>
             <Route path="dashboard" element={<Dashboard/>}/>
-            <Route path="new-post" element={<NewPost/>}/>
-            <Route path="details/:id" element={<PostDetails/>}/>
+            <Route path="post/new" element={<NewPost/>}/>
+            <Route path="post/edit/:id" element={<EditPost/>}/>
+            <Route path="post/details/:id" element={<PostDetails/>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
       </Router>

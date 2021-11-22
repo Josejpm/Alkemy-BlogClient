@@ -4,7 +4,6 @@ import axiosClient from "../../../config/axios";
 const initialState = {
   posts: [],
   loading: false,
-  error: null,
   singlePost: {},
 };
 
@@ -44,7 +43,9 @@ export const editPost = createAsyncThunk("posts/editPost", async (payload) => {
 const postsSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {},
+  reducers: {
+    clearSinglePost:(state)=>{ state.singlePost={}}
+  },
   extraReducers: (builder) => {
     builder
       .addCase(newPost.fulfilled, (state,action) => {
@@ -57,6 +58,10 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+      })
+      .addCase(getPostById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.singlePost = action.payload;
       })
       .addCase(deletePost.fulfilled, (state, action) => {
         state.posts = state.posts.filter((post) => post.id !== action.payload);
@@ -71,6 +76,8 @@ const postsSlice = createSlice({
   },
 });
 
-const { reducer } = postsSlice;
+const { reducer,actions } = postsSlice;
+const {clearSinglePost} = actions;
 
+export {clearSinglePost}
 export default reducer;
