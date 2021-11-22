@@ -12,14 +12,19 @@ export const PostListItem = ({ post }) => {
   return (
     <Fragment>
       <tr>
-        <td className="td-wrapper" >
+        <td className="td-wrapper">
           <p className="post-title"> {title} </p>{" "}
           <Button className="green btn" onClick={() => setShow(true)}>
             Options
           </Button>
         </td>
 
-        <OptionsOffCanvas post={post} show={show} setShow={setShow} setShowModal={setShowModal} />
+        <OptionsOffCanvas
+          post={post}
+          show={show}
+          setShow={setShow}
+          setShowModal={setShowModal}
+        />
       </tr>
 
       <CenteredModal
@@ -28,7 +33,10 @@ export const PostListItem = ({ post }) => {
         id={id}
         show={showModal}
         setShowModal={setShowModal}
-        onHide={() => { setShowModal(false) ; setShow(false) }}
+        onHide={() => {
+          setShowModal(false);
+          setShow(false);
+        }}
       />
     </Fragment>
   );

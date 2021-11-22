@@ -2,12 +2,12 @@
 @use '../base/variables' as v;
 
 
+
 .not-found{
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-
 }
 
 .not-found-image{
@@ -15,6 +15,18 @@
     margin: 0 auto;
 
     @include m.desktop{
-        width: 40%;
+        width: 30%;
+    }
+}
+
+.nodata-text{
+    color: v.$darkenPrimary;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 0;
+    margin-top: 5rem;
+
+    @include m.desktop{
+        font-size: 5rem;
     }
 }

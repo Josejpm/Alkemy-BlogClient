@@ -8,7 +8,7 @@ import { NavBar } from "../components/NavBar";
 import { PostForm } from "../components/PostForm";
 
 //Redux
-import { editPost } from "../redux/slices/posts";
+import { editPost } from "../redux/slices/posts/actions";
 
 export const EditPost = () => {
   const dispatch = useDispatch();

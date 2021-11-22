@@ -1,28 +1,27 @@
-import React,{ Fragment, useEffect } from "react";
-import {useDispatch,useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import React, { Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { NavBar } from "../components/NavBar";
 
-import {newPost} from '../redux/slices/posts';
+import { newPost } from "../redux/slices/posts/actions";
 import { PostForm } from "../components/PostForm";
 
 export const NewPost = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {posts} = useSelector(state => state.posts);
-  
-  const token = localStorage.getItem('blog-token');
-  if(!token){
-      navigate('/');
+  const { posts } = useSelector((state) => state.posts);
+
+  const token = localStorage.getItem("blog-token");
+  if (!token) {
+    navigate("/");
   }
 
   useEffect(() => {
-    if(posts.length===0){
-      navigate('/dashboard')
+    if (posts.length === 0) {
+      navigate("/dashboard");
     }
   }, []);
-
 
   const validate = (values) => {
     const errors = {};
@@ -46,18 +45,15 @@ export const NewPost = () => {
     onSubmit: (values) => handleSubmit(values),
   });
 
-
   const handleSubmit = (values) => {
-    dispatch(newPost(values))
-    navigate('/dashboard')
+    dispatch(newPost(values));
+    navigate("/dashboard");
   };
 
   return (
     <Fragment>
-
-      <NavBar/>
+      <NavBar />
       <PostForm title="Add a new post" formik={formik} />
-
     </Fragment>
   );
 };

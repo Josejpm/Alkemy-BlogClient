@@ -7,6 +7,7 @@ import {NewPost} from './pages/NewPost';
 import {EditPost} from './pages/EditPost';
 import Dashboard from './pages/Dashboard';
 import PostDetails from './pages/PostDetails'
+import { NotFound } from './pages/NotFound';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="post/new" element={<NewPost/>}/>
             <Route path="post/edit/:id" element={<EditPost/>}/>
             <Route path="post/details/:id" element={<PostDetails/>}/>
+            <Route path="no-data" element={<NotFound/>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
       </Router>

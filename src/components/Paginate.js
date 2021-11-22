@@ -10,18 +10,20 @@ export const Paginate = ({ actualPage, setActualPage, maxPages }) => {
         onClick={() => setActualPage(actualPage - 1)}
       />
 
-      <Pagination.Item 
+      <Pagination.Item
         className={actualPage === 1 && "disabled"}
-        onClick={()=>setActualPage(actualPage-1)}
+        onClick={() => setActualPage(actualPage - 1)}
       >
         {actualPage === 1 ? `-` : `${actualPage - 1}`}
       </Pagination.Item>
 
-      <Pagination.Item className="paginate" active>{actualPage}</Pagination.Item>
+      <Pagination.Item className="paginate" active>
+        {actualPage}
+      </Pagination.Item>
 
-      <Pagination.Item 
+      <Pagination.Item
         className={actualPage === maxPages && "disabled"}
-        onClick={()=>setActualPage(actualPage+1)}
+        onClick={() => setActualPage(actualPage + 1)}
       >
         {actualPage === maxPages ? `-` : `${actualPage + 1}`}
       </Pagination.Item>

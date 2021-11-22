@@ -22,6 +22,10 @@
         justify-content: space-between;
         align-items: center;
         width: auto;
+        
+        &:hover h1{
+            color: v.$darkenPrimary;
+        }
 
         h1{
             font-size: 1.2rem;
@@ -29,9 +33,13 @@
             font-weight: 700;
             display: block;
             margin: 0;
+            transition: all 0.3s ease-in-out;
             @include m.tablet{
                 font-size: 3rem;
             }
+
+            
+
         }
 
         .logo__img{

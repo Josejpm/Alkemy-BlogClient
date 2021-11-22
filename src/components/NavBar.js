@@ -5,8 +5,7 @@ import logo from "../assets/img/alkemyLogo.png";
 import CenteredModal from "./CenteredModal";
 
 export const NavBar = () => {
-
-    const [showModal,setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <Nav className="app-header ">
@@ -27,23 +26,21 @@ export const NavBar = () => {
           variant="outline-danger"
           style={{ marginLeft: "2rem" }}
           className="d-inline-block"
-          onClick={()=>setShowModal(true)}
+          onClick={() => setShowModal(true)}
         >
           Log out
         </Button>
       </div>
 
-        
       <CenteredModal
-        title=''
-        id=''
+        title=""
+        id=""
         show={showModal}
         setShowModal={setShowModal}
         onHide={() => {
           setShowModal(false);
         }}
       />
-
     </Nav>
   );
 };

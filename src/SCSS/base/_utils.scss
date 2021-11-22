@@ -1,14 +1,6 @@
 @use './variables' as v;
 @use './mixins' as m;
 
-.custom-gradient{
-    background: linear-gradient(to right, v.$orange 0%, v.$darkenPrimary 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-}
-
 .heading{
     display: inline-block;
     margin: 0 auto;
@@ -25,5 +17,14 @@
         }
         background-color: v.$primary
     }
+}
 
+.offcanvas-title{
+    font-size: 1.2rem;
+    @include m.tablet{
+        font-size: 1.8rem;
+    }
+    span{
+        font-weight: bold;
+    }
 }
